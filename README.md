@@ -50,7 +50,7 @@ int main()
 ```
 
 ## OUTPUT:
-<img width="1858" height="862" alt="image" src="https://github.com/user-attachments/assets/a71b176c-7aae-4944-9199-df22698ed841" />
+<img width="1917" height="742" alt="image" src="https://github.com/user-attachments/assets/ebc67f95-0240-4b35-b4c4-449070a931fe" />
 
 
 ## RESULT :
