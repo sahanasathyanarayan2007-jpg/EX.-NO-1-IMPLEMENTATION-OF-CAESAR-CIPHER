@@ -17,40 +17,52 @@ STEP-5: Display the cipher text obtained above.
 
 ## PROGRAM:
 ```
-
 #include <stdio.h>
 #include <string.h>
 
 int main()
 {
     char text[100];
-    int key, i;
+    int shift, i;
 
-    printf("Enter the plain text: ");
+    printf("Enter text: ");
     fgets(text, sizeof(text), stdin);
 
-    printf("Enter the key: ");
-    scanf("%d", &key);
+    printf("Enter key: ");
+    scanf("%d", &shift);
 
-    key = (key % 26 + 26) % 26;
+    shift = ((shift % 26) + 26) % 26;
 
+    // Encryption
     for (i = 0; text[i] != '\0'; i++)
     {
-        if (text[i] >= 'A' && text[i] <= 'Z')
-            text[i] = (text[i] - 'A' + key) % 26 + 'A';
+        if (text[i] >= 'a' && text[i] <= 'z')
+            text[i] = (text[i] - 'a' + shift) % 26 + 'a';
 
-        else if (text[i] >= 'a' && text[i] <= 'z')
-            text[i] = (text[i] - 'a' + key) % 26 + 'a';
+        else if (text[i] >= 'A' && text[i] <= 'Z')
+            text[i] = (text[i] - 'A' + shift) % 26 + 'A';
     }
 
-    printf("Cipher text: %s", text);
+    printf("Encrypted text: %s", text);
+
+    // Decryption
+    for (i = 0; text[i] != '\0'; i++)
+    {
+        if (text[i] >= 'a' && text[i] <= 'z')
+            text[i] = (text[i] - 'a' - shift + 26) % 26 + 'a';
+
+        else if (text[i] >= 'A' && text[i] <= 'Z')
+            text[i] = (text[i] - 'A' - shift + 26) % 26 + 'A';
+    }
+
+    printf("Decrypted text: %s", text);
 
     return 0;
 }
 ```
 
 ## OUTPUT:
-<img width="1917" height="742" alt="image" src="https://github.com/user-attachments/assets/ebc67f95-0240-4b35-b4c4-449070a931fe" />
+<img width="1805" height="642" alt="image" src="https://github.com/user-attachments/assets/38c74d8b-5d76-435e-8a13-71146ec1a037" />
 
 
 ## RESULT :
